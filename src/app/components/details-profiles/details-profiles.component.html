@@ -1,0 +1,10 @@
+<div *ngIf="profile; else loading">
+  <div>Profile Details {{profile.id}}</div>
+  <div>Hello {{profile.name}}!</div>
+  <div>This is your profile</div>
+</div>
+<ng-template #loading>
+Loading data...
+</ng-template>
+
+

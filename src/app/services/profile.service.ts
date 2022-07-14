@@ -3,20 +3,22 @@ import { Observable, of } from 'rxjs';
 import { Profile } from '../interfaces/profile.interface';
 import { IResponse } from '../interfaces/response.interface';
 import { ICrud } from '../interfaces/service.interface';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService implements ICrud<Profile> {
-
-  constructor() { }
+  private route: string = 'profiles';
+  constructor(private http: HttpClient) { }
 
   create(): Observable<IResponse<Profile>> {
     return of()
   };
 
   get(id: number): Observable<IResponse<Profile>> {
-    return of();
+    return this.http.get<IResponse<Profile>>(`${environment.API_URL}/${this.route}/${id}`);
   }
 
   update(data: Profile): Observable<IResponse<Profile>> {
@@ -28,6 +30,6 @@ export class ProfileService implements ICrud<Profile> {
   }
 
   list(data: Profile): Observable<IResponse<Profile>> {
-    return of();
+    return this.http.get<IResponse<Profile>>(`${environment.API_URL}/${this.route}`);
   }
 }

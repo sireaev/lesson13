@@ -1,0 +1,20 @@
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nr.</th>
+      <th>name</th>
+      <th>Settings</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profile of profiles; let i = index;">
+      <td>{{ i + 1 }}</td>
+      <td>{{profile.name}}</td>
+      <td>{{showSettingsObject(profile.settings)}}</td>
+      <td>
+        <button [routerLink]="[profile.id]">View</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

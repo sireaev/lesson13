@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   useDummyData: false,
-  API_URL: 'http://test-dev.myproject.com'
+  API_URL: 'http://localhost:3000'
 };
 
 /*

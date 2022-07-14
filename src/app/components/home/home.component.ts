@@ -1,10 +1,18 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   // template: '',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  // encapsulation: ViewEncapsulation.Emulated,
+  // providers: [],
+  // host: {
+  //   'Dqdqwdqwd': 'dqwdqwdq'
+  // },
+  // viewProviders: [],
+  // animations: [],
+  // exportAs: 'home',
 })
 export class HomeComponent implements OnInit, OnDestroy {
   todoName: string = '';
