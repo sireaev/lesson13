@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  useDummyData: false,
+  API_URL: 'http://myproject.com'
 };

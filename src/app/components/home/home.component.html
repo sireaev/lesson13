@@ -1,0 +1,15 @@
+
+<button (click)="afiseazaValoareaLaHeader()">Afiseaza valoarea din parinte</button>
+<main>
+<input type="text" [(ngModel)]="todoName" placeholder="Todo list name">
+<button (click)="addItem()">Adauga</button>
+<button (click)="clear()">Reseteaza</button>
+<ul *ngIf="myList.length" style="border: 1px solid #000;">
+  <app-item *ngFor="let item of myList;let i = index" (deleteItem)="deleteItem(i)">
+    {{item}}
+    <div>test</div>
+    <span>asdasd</span>
+  </app-item>
+</ul>
+<div *ngIf="!myList.length" style="color: red; font-weight: bold;"> Nu exista itemi la moment!</div>
+</main>
