@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProfileService } from 'src/app/services/profile.service';
+import { ProfileService } from '../../services/profile.service';
 
 interface Profile {
   id?: number;

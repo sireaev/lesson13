@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from 'src/app/services/profile.service';
+import { ProfileService } from '../../services/profile.service';
 
 interface Profile {
   id?: number;

@@ -4,7 +4,7 @@ import { Profile } from '../interfaces/profile.interface';
 import { IResponse } from '../interfaces/response.interface';
 import { ICrud } from '../interfaces/service.interface';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

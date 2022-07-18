@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { DateEnum } from '../../enums/date.enum';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   myList: any[] = [];
   storageKey = 'myList'
   isLoading: boolean = true;
+  date: string;
+  dateEnum = DateEnum;
+  case: string = 'data';
+  isBorder = true;
   constructor() { }
+
+  getBackendDate(): string {
+    const date = '2020-07-15T08:30:00.000'
+    return date.endsWith('Z') ? date : `${date}Z`;
+  }
 
   ngOnInit(): void {
     this.myList = this.getStorage();
@@ -40,6 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   deleteItem(index: number) {
+    // this.myMethod();
     if (!this.myList.length) {
       return
     }

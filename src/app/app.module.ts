@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListProfilesComponent } from './components/list-profiles/list-profiles.component';
 import { DetailsProfilesComponent } from './components/details-profiles/details-profiles.component';
 import { RouterModule } from '@angular/router';
+import { LocalDatePipe } from './pipes/local-date.pipe';
+import { DatePipe } from '@angular/common';
+import { EmphasizedDirective } from './directives/emphasized.directive';
 
 @NgModule({
   imports: [
@@ -33,8 +36,10 @@ import { RouterModule } from '@angular/router';
     ContactsComponent,
     ListProfilesComponent,
     DetailsProfilesComponent,
+    LocalDatePipe,
+    EmphasizedDirective,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
