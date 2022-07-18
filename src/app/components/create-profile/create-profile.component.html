@@ -1,0 +1,39 @@
+<form #profileForm="ngForm" (ngSubmit)="createProfile($event)">
+<div>
+  <label>Name</label>
+  <div class="input-container">
+    <input #name="ngModel" type="text" name="name" [(ngModel)]="profile.name" required pattern="[A-Za-z- ]+"
+    [ngClass]="{'error': name.invalid && (name.dirty || name.touched)}">
+    <img *ngIf="name.invalid && (name.dirty || name.touched)" src="assets/images/alert-icon.png" alt="alert">
+  </div>
+  <!-- <app-message-validation [isShow]="name.invalid && (name.dirty || name.touched)"></app-message-validation> -->
+  <span *ngIf="name.hasError('required') && (name.dirty || name.touched)" style="color: red; font-weight: bold;">Name este obligatoriu</span>
+  <span *ngIf="name.hasError('pattern') && (name.dirty || name.touched)" style="color: red; font-weight: bold;">Numele trebuie sa contina doar litere si simbolurile: -</span>
+</div>
+<div>
+  <label>Surname</label>
+  <input #surname="ngModel" type="text" name="surname" [(ngModel)]="profile.surname" required>
+  <span *ngIf="surname.invalid && (surname.dirty || surname.touched)" style="color: red; font-weight: bold;">Name este obligatoriu</span>
+</div>
+<div>
+  <label>Age</label>
+  <input #age="ngModel" type="number" name="age" [(ngModel)]="profile.age" required>
+  <span *ngIf="age.invalid && (age.dirty || age.touched)" style="color: red; font-weight: bold;">Name este obligatoriu</span>
+</div>
+<div>
+  <label>Password</label>
+  <input #password="ngModel" type="password" name="password" [(ngModel)]="profile.password" required>
+  <span *ngIf="password.invalid && (password.dirty || password.touched)" style="color: red; font-weight: bold;">Name este obligatoriu</span>
+</div>
+<div>
+  <label>Is activated ?</label>
+  <input #isactivated="ngModel" type="checkbox" name="isActivated" [(ngModel)]="profile.isActivated">
+  <span *ngIf="isactivated.invalid && (isactivated.dirty || isactivated.touched)" style="color: red; font-weight: bold;">Name este obligatoriu</span>
+</div>
+<div>
+  <label>Is dark theme?</label>
+  <input #darktheme="ngModel" type="checkbox" name="isDarkTheme" [(ngModel)]="profile.settings.isDarkTheme">
+  <span *ngIf="darktheme.invalid && (darktheme.dirty || darktheme.touched)" style="color: red; font-weight: bold;">Name este obligatoriu</span>
+</div>
+<input type="submit" value="Trimite">
+</form>

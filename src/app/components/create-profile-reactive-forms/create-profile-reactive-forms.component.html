@@ -1,0 +1,39 @@
+<form [formGroup]="profileForm">
+  <div>
+    <label>Name</label>
+    <div class="input-container">
+      <input type="text" name="name" formControlName="name"
+      [ngClass]="{'error': profileForm.get('name')?.invalid && (profileForm.get('name')?.dirty || profileForm.get('name')?.touched)}">
+      <img *ngIf="profileForm.get('name')?.invalid && (profileForm.get('name')?.dirty || profileForm.get('name')?.touched)" src="assets/images/alert-icon.png" alt="alert">
+    </div>
+    <!-- <app-message-validation [isShow]="name.invalid && (name.dirty || name.touched)"></app-message-validation> -->
+    <span *ngIf="profileForm.get('name')?.hasError('required') && (profileForm.get('name')?.dirty || profileForm.get('name')?.touched)" style="color: red; font-weight: bold;">Name este obligatoriu</span>
+    <span *ngIf="profileForm.get('name')?.hasError('pattern') && (profileForm.get('name')?.dirty || profileForm.get('name')?.touched)" style="color: red; font-weight: bold;">Numele trebuie sa contina doar litere si simbolurile: -</span>
+    <span style="color: red; font-weight: bold;" *ngIf="profileForm.get('name')?.hasError('numberValidation')">
+      Acest camp contine cifre de la 0 la 9!
+    </span>
+  </div>
+  <div>
+    <label>Surname</label>
+    <!-- <input type="text" name="surname" formControlName="surname" [(ngModel)]="mySurname" (ngModelOptions)="{standalone: true }"> -->
+    <input type="text" name="surname" formControlName="surname">
+  </div>
+  <div>
+    <label>Age</label>
+    <input type="number" name="age" formControlName="age">
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" name="password" formControlName="password">
+  </div>
+  <div>
+    <label>Is activated ?</label>
+    <input type="checkbox" name="isActivated" formControlName="isActivated">
+  </div>
+  <div formGroupName="settings">
+    <label>Is dark theme?</label>
+    <input type="checkbox" name="isDarkTheme" formControlName="isDarkTheme">
+  </div>
+  <input type="submit" value="Trimite">
+  <input type="reset" value="Reseteaza">
+  </form>

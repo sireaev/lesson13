@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServicesComponent } from './components/services/services.component';
 import { HomeComponent } from './components/home/home.component';
 import { ItemComponent } from './components/item/item.component';
@@ -17,6 +17,9 @@ import { RouterModule } from '@angular/router';
 import { LocalDatePipe } from './pipes/local-date.pipe';
 import { DatePipe } from '@angular/common';
 import { EmphasizedDirective } from './directives/emphasized.directive';
+import { CreateProfileComponent } from './components/create-profile/create-profile.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { CreateProfileReactiveFormsComponent } from './components/create-profile-reactive-forms/create-profile-reactive-forms.component';
 
 @NgModule({
   imports: [
@@ -24,7 +27,8 @@ import { EmphasizedDirective } from './directives/emphasized.directive';
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -38,6 +42,9 @@ import { EmphasizedDirective } from './directives/emphasized.directive';
     DetailsProfilesComponent,
     LocalDatePipe,
     EmphasizedDirective,
+    CreateProfileComponent,
+    SettingsComponent,
+    CreateProfileReactiveFormsComponent,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -1,0 +1,19 @@
+.error {
+  outline: 0;
+  border: 3px solid red;
+}
+
+.input-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 177px;
+  img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 16px;
+    line-height: 16px;
+  }
+}

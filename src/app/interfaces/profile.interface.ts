@@ -1,11 +1,12 @@
 export interface Profile {
-  name: string;
-  surname: string;
-  age: number;
-  password: string;
+  name: string | null;
+  surname: string | null;
+  age: number | null;
+  password: string | null;
+  isActivated: boolean | null;
   settings: ProfileSettings;
 }
 
 interface ProfileSettings {
-  isDarkTheme: boolean;
+  isDarkTheme: boolean | null;
 }
