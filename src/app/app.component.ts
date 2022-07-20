@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { SettingsService } from './services/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,12 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
 
   todoName: string = '';
   myList: any[] = [];
-  constructor() {
-    console.log('SE INITIALIZEAZA CONSTRUCTOR', this.title);
-    console.log('AVEM DISPONIBILE AICI CLASS MEMBERS title, mybool');
+  constructor(private settingsService: SettingsService) {
+    console.log('AppComponent CONSTRUCTOR', this.settingsService.settings.getValue());
+    this.settingsService.settings.subscribe(response => {
+      console.log('AppComponent CONSTRUCTOR after subscribe', response);
+    })
+    this.settingsService.settings.next({ isAdmin: true, isDarkTheme: true, userType: 1})
   }
 
   ngOnInit(): void {

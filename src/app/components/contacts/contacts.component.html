@@ -1,2 +1,3 @@
 <p>contacts works!</p>
-<input type="text" (input)="test = $event">
+<input type="text" [value]="settings?.userType">
+<input type="button" value="Import" (click)="importData()">

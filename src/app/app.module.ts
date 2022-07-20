@@ -20,6 +20,11 @@ import { EmphasizedDirective } from './directives/emphasized.directive';
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { CreateProfileReactiveFormsComponent } from './components/create-profile-reactive-forms/create-profile-reactive-forms.component';
+import { MY_CONST1, MY_CONST2, MY_CONST3 } from './constants/keys';
+
+class MyClass {
+  constructor() {}
+}
 
 @NgModule({
   imports: [
@@ -46,7 +51,15 @@ import { CreateProfileReactiveFormsComponent } from './components/create-profile
     SettingsComponent,
     CreateProfileReactiveFormsComponent,
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+    { provide: 'AWS_TOKEN', useValue: 'ADASDADASDASF' },
+    { provide: 'CONSTANTS', useValue: {
+      MY_CONST1,
+      MY_CONST2,
+      MY_CONST3
+    }},
+    { provide: 'HelperClass', useClass: MyClass }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
