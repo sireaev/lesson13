@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from '../../services/profile.service';
 
 interface Profile {
@@ -16,15 +16,17 @@ interface Profile {
 export class DetailsProfilesComponent implements OnInit {
   profile: Profile | null = null;
   constructor(private profileService: ProfileService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.subscribeForParams();
+    this.router.navigate(['../../list'], { relativeTo: this.route });
   }
 
   subscribeForParams(): void {
     this.route.params.subscribe((response: any) => {
-      if (response['id'] as number) {
+      if (response['ceva'] as number) {
         this.getProfile(+response.id);
       }
     })

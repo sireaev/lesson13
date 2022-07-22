@@ -2,17 +2,19 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "allowJs": false,
+    "esModuleInterop": true,
     "outDir": "./out-tsc/spec",
+    "module": "CommonJs",
     "types": [
-      "jasmine"
+      "jest",
+      "node"
     ]
   },
   "files": [
-    "src/test.ts",
     "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.spec.ts",
-    "src/**/*.d.ts"
   ]
 }

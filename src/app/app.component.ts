@@ -1,10 +1,10 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AuthService } from './services/auth.service';
 import { SettingsService } from './services/settings.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: '<router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit, OnChanges, OnDestroy {
   headerTitle: string = 'Din parinte in copil';
@@ -13,12 +13,14 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy {
 
   todoName: string = '';
   myList: any[] = [];
-  constructor(private settingsService: SettingsService) {
+  constructor(private settingsService: SettingsService,
+              private authService: AuthService) {
     console.log('AppComponent CONSTRUCTOR', this.settingsService.settings.getValue());
     this.settingsService.settings.subscribe(response => {
       console.log('AppComponent CONSTRUCTOR after subscribe', response);
     })
     this.settingsService.settings.next({ isAdmin: true, isDarkTheme: true, userType: 1})
+    this.authService.login();
   }
 
   ngOnInit(): void {

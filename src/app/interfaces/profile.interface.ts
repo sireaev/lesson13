@@ -5,6 +5,7 @@ export interface Profile {
   password: string | null;
   isActivated: boolean | null;
   settings: ProfileSettings;
+  token?: string;
 }
 
 interface ProfileSettings {

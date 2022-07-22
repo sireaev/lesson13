@@ -167,5 +167,7 @@
     { "id": 1, "name": "vs", "settings": {} },
     { "id": 1, "name": "vs", "settings": {} }
   ],
+  "login": { "id": 1, "name": "Victoria", "settings": {}, "token": "ASd12d1f32g23g23g23gA" },
+  "token": { "token": "ASd12d1f32g23g23g23g" },
   "users": []
 }

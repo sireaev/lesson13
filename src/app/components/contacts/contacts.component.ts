@@ -2,6 +2,10 @@ import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { ISettings } from '../../interfaces/settings.interface';
 import { SettingsService } from '../../services/settings.service';
 
+
+type Item = {
+  name: string;
+}
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
